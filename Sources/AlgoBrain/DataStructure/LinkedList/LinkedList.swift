@@ -84,45 +84,64 @@ public extension LinkedList {
             temp = temp?.next
             currentIndex += 1
         }
+        var success: Bool = false
         if currentIndex + 1 == index {
             let newNode = ListNode(val)
             newNode.next = temp?.next
             temp?.next = newNode
-            return true
+            success = true
         } else {
             print("Cannot insert in linked list at index \(index) as list count is \(currentIndex)")
-            return false
+            success = false
         }
+        return success
     }
 }
 
 // Delete
 public extension LinkedList {
     
-    func deleteFrom(_ position: Position) {
+    func removeFrom(_ position: Position) -> Bool {
+        if isEmpty { print("Cannot delete from an empty list."); return false }
         switch position {
         case .start:
-            deleteFromFirst()
+            return deleteFromFirst()
         case .end:
-            deleteFromLast()
+            return deleteFromLast()
         case .index(let index):
-            delete(at: index)
+            return delete(at: index)
         }
     }
     
     // O(1)
-    private func deleteFromFirst() {
-        
+    private func deleteFromFirst() -> Bool {
+        head = head?.next
+        return true
     }
    
-    // O(n), where `n` is the given index
-    private func deleteFromLast() {
-        
+    // O(n)
+    private func deleteFromLast() -> Bool {
+        var temp = head
+        var previous = head
+        while temp?.next != nil {
+            previous = temp
+            temp = temp?.next
+        }
+
+        previous?.next = nil
+        return true
     }
     
     // O(n), where `n` is the given index
-    private func delete(at index: Int) {
-        
+    private func delete(at index: Int) -> Bool {
+        var temp = head
+        var currentIndex = 0
+        while currentIndex + 1 < index {
+            temp = temp?.next
+            currentIndex += 1
+        }
+        temp?.next = temp?.next?.next
+        return true
     }
 }
 
