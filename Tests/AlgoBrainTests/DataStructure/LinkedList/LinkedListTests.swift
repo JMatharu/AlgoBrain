@@ -76,6 +76,13 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testReverse() {
-        
+        let list = LinkedList<Int>()
+        _ = list.insertAt(.end, with: 1)
+        _ = list.insertAt(.end, with: 2)
+        _ = list.insertAt(.end, with: 3)
+        _ = list.insertAt(.end, with: 4)
+        XCTAssertEqual(list.head?.description, "1 -> 2 -> 3 -> 4")
+        list.reverse()
+        XCTAssertEqual(list.head?.description, "4 -> 3 -> 2 -> 1")
     }
 }

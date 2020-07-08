@@ -148,6 +148,17 @@ public extension LinkedList {
 // Reverse
 public extension LinkedList {
     func reverse() {
+        var current = head
+        var next = head
+        var previous: ListNode<T>?
         
+        while next != nil {
+            next = next?.next
+            current?.next = previous
+            previous = current
+            
+            current = next
+        }
+        head = previous
     }
 }
