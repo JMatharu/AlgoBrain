@@ -7,11 +7,14 @@
 
 import Foundation
 
+/// List node used to create a Linked List, also can be called as a `node`.
 public class ListNode<T>: CustomStringConvertible {
     
     public var val: T
     public var next: ListNode?
     
+    /// Initilizer of ListNode
+    /// - Parameter val: Value of the declared data type
     public init(_ val: T) {
         self.val = val
         self.next = nil

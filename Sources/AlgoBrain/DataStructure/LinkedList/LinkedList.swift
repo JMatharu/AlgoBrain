@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Implementation of Singly linked list
 public class LinkedList<T> {
     public var head: ListNode<T>?
     
@@ -28,6 +29,7 @@ public class LinkedList<T> {
         return count
     }
     
+    /// Enum to declares position to where execution of method occurs
     public enum Position {
         case start, end, index(Int)
     }
@@ -36,6 +38,11 @@ public class LinkedList<T> {
 // Insertion
 public extension LinkedList {
     
+    /// Inserting to a linked list
+    /// - Parameters:
+    ///   - position: Defined as start, end or at an index
+    ///   - val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     func insertAt(_ position: Position, with val: T) -> Bool {
         switch position {
         case .start:
@@ -47,7 +54,10 @@ public extension LinkedList {
         }
     }
     
-    // insert at tail O(1)
+    /// Insertion at head to a linked list,
+    /// Time Complexity - O(1)
+    /// - Parameter val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func insertAtFirst(_ val: T) -> Bool {
         let node = ListNode(val)
         node.next = head
@@ -55,7 +65,10 @@ public extension LinkedList {
         return true
     }
     
-    // insert at head O(n)
+    /// Insertion at tail to a linked list
+    /// Time Complexity - O(n)
+    /// - Parameter val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func insertAtLast(_ val: T) -> Bool {
         guard !isEmpty else { return insertAtFirst(val) }
         
@@ -69,7 +82,13 @@ public extension LinkedList {
         return true
     }
     
-    // O(n), where `n` is the given index
+    //
+    /// Insert at a particular index in to a linked list
+    /// Time Complexity - O(n), where `n` is the given index
+    /// - Parameters:
+    ///   - val: Value to be inserted at a specific place
+    ///   - index: Index where to insert
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func insert(_ val: T, at index: Int) -> Bool {
         if index < 0 { print("Index should be greater than or equal to 0."); return false }
         
@@ -101,6 +120,9 @@ public extension LinkedList {
 // Delete
 public extension LinkedList {
     
+    /// Removing from a Linked List
+    /// - Parameter position: Defined as start, end or at an index
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     func removeFrom(_ position: Position) -> Bool {
         if isEmpty { print("Cannot delete from an empty list."); return false }
         switch position {
@@ -113,13 +135,17 @@ public extension LinkedList {
         }
     }
     
-    // O(1)
+    /// Remove from start of a Linked List
+    /// Time Complexity - O(1)
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func deleteFromFirst() -> Bool {
         head = head?.next
         return true
     }
    
-    // O(n)
+    /// Remove from end of a Linked List
+    /// Time Complexity - O(n), where `n` is the given index
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func deleteFromLast() -> Bool {
         var temp = head
         var previous = head
@@ -132,7 +158,10 @@ public extension LinkedList {
         return true
     }
     
-    // O(n), where `n` is the given index
+    /// Remove from a particular index in a Linked List
+    /// Time Complexity - O(n), where `n` is the given index
+    /// - Parameter index: Index where to delete
+    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     private func delete(at index: Int) -> Bool {
         var temp = head
         var currentIndex = 0
@@ -147,6 +176,8 @@ public extension LinkedList {
 
 // Reverse
 public extension LinkedList {
+    /// Reverse a Linked list,
+    /// Time Complexity - O(n)
     func reverse() {
         var current = head
         var next = head
