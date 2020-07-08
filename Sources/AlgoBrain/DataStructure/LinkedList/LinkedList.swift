@@ -36,27 +36,28 @@ public class LinkedList<T> {
 // Insertion
 public extension LinkedList {
     
-    func insertAt(_ position: Position, with val: T) {
+    func insertAt(_ position: Position, with val: T) -> Bool {
         switch position {
         case .start:
-            insertAtFirst(val)
+            return insertAtFirst(val)
         case .end:
-            insertAtLast(val)
+            return insertAtLast(val)
         case .index(let index):
-            insert(val, at: index)
+            return insert(val, at: index)
         }
     }
     
     // insert at tail O(1)
-    private func insertAtFirst(_ val: T) {
+    private func insertAtFirst(_ val: T) -> Bool {
         let node = ListNode(val)
         node.next = head
         head = node
+        return true
     }
     
     // insert at head O(n)
-    private func insertAtLast(_ val: T) {
-        guard !isEmpty else { insertAtFirst(val); return }
+    private func insertAtLast(_ val: T) -> Bool {
+        guard !isEmpty else { return insertAtFirst(val) }
         
         var temp = head
         
@@ -65,15 +66,16 @@ public extension LinkedList {
         }
         
         temp?.next = ListNode(val)
+        return true
     }
     
     // O(n), where `n` is the given index
-    private func insert(_ val: T, at index: Int) {
-        if index < 0 { print("Index should be greater than or equal to 0."); return }
+    private func insert(_ val: T, at index: Int) -> Bool {
+        if index < 0 { print("Index should be greater than or equal to 0."); return false }
         
-        if isEmpty && index > 0 { print("Cannot insert in linked list at index \(index) as list is empty"); return }
+        if isEmpty && index > 0 { print("Cannot insert in linked list at index \(index) as list is empty"); return false }
         
-        guard !isEmpty else { insertAtFirst(val); return }
+        guard !isEmpty else { return insertAtFirst(val) }
         
         var temp = head
         var currentIndex = 0
@@ -86,10 +88,11 @@ public extension LinkedList {
             let newNode = ListNode(val)
             newNode.next = temp?.next
             temp?.next = newNode
+            return true
         } else {
             print("Cannot insert in linked list at index \(index) as list count is \(currentIndex)")
+            return false
         }
-        
     }
 }
 
