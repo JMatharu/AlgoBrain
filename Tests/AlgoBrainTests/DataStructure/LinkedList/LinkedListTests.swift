@@ -72,7 +72,7 @@ final class LinkedListTests: XCTestCase {
         XCTAssertTrue(list.removeFrom(.index(2)))
         XCTAssertEqual(list.head?.description, "1 -> 2 -> 4")
         XCTAssertTrue(list.removeFrom(.index(1)))
-        XCTAssertEqual(list.head?.description, "1 -> 4")
+        XCTAssertEqual(list.head?.description, "1 -> 4.")
     }
     
     func testReverse() {
