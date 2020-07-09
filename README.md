@@ -3,8 +3,7 @@
 ![Swift](https://github.com/JMatharu/AlgoBrain/workflows/Swift/badge.svg?branch=master)
 [![BSD 3-Clause LiCENSE](https://img.shields.io/badge/license-BSD3-brightgreen.svg)](LICENSE)
 
-Algorithms and Data Structure Implemntations.
-A very simple Swift Package with implemented Data Structure and Algorithms
+A very simple Swift Package with implemented Data Structure and Algorithms for direct use to project.
 
 ## Completed
 - LinkedList
