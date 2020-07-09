@@ -1,0 +1,10 @@
+matrix:
+  include:
+    - os: osx
+      language: swift
+      osx_image: xcode11.5
+xcode_scheme: AlgoBrainTests
+script:
+  - swift test -c release -Xswiftc -enable-testing
+notifications:
+  email: false
