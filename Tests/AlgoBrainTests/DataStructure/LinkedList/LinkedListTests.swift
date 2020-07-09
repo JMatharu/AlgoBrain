@@ -83,6 +83,6 @@ final class LinkedListTests: XCTestCase {
         _ = list.insertAt(.end, with: 4)
         XCTAssertEqual(list.head?.description, "1 -> 2 -> 3 -> 4")
         list.reverse()
-        XCTAssertEqual(list.head?.description, "4 -> 3 -> 2 -> 1")
+        XCTAssertEqual(list.head?.description, "4 -> 3 -> 2 -> 1.")
     }
 }
