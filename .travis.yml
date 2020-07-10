@@ -6,7 +6,7 @@ matrix:
 xcode_scheme: AlgoBrainTests
 script:
   - swift test -c release -Xswiftc -enable-testing
-  - xcodebuild -scheme AlgoBrain -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test --cover-xml
+  - xcodebuild -scheme AlgoBrain -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
