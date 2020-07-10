@@ -28,11 +28,6 @@ public class LinkedList<T> {
         }
         return count
     }
-    
-    /// Enum to declares position to where execution of method occurs
-    public enum Position {
-        case start, end, index(Int)
-    }
 }
 
 // Insertion
@@ -58,7 +53,7 @@ public extension LinkedList {
     /// Time Complexity - O(1)
     /// - Parameter val: Value to be inserted at a specific place
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func insertAtFirst(_ val: T) -> Bool {
+    fileprivate func insertAtFirst(_ val: T) -> Bool {
         let node = ListNode(val)
         node.next = head
         head = node
@@ -69,7 +64,7 @@ public extension LinkedList {
     /// Time Complexity - O(n)
     /// - Parameter val: Value to be inserted at a specific place
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func insertAtLast(_ val: T) -> Bool {
+    fileprivate func insertAtLast(_ val: T) -> Bool {
         guard !isEmpty else { return insertAtFirst(val) }
         
         var temp = head
@@ -89,7 +84,7 @@ public extension LinkedList {
     ///   - val: Value to be inserted at a specific place
     ///   - index: Index where to insert
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func insert(_ val: T, at index: Int) -> Bool {
+    fileprivate func insert(_ val: T, at index: Int) -> Bool {
         if index < 0 { print("Index should be greater than or equal to 0."); return false }
         
         if isEmpty && index > 0 { print("Cannot insert in linked list at index \(index) as list is empty"); return false }
@@ -138,7 +133,7 @@ public extension LinkedList {
     /// Remove from start of a Linked List
     /// Time Complexity - O(1)
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func deleteFromFirst() -> Bool {
+    fileprivate func deleteFromFirst() -> Bool {
         head = head?.next
         return true
     }
@@ -146,7 +141,7 @@ public extension LinkedList {
     /// Remove from end of a Linked List
     /// Time Complexity - O(n), where `n` is the given index
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func deleteFromLast() -> Bool {
+    fileprivate func deleteFromLast() -> Bool {
         var temp = head
         var previous = head
         while temp?.next != nil {
@@ -162,7 +157,7 @@ public extension LinkedList {
     /// Time Complexity - O(n), where `n` is the given index
     /// - Parameter index: Index where to delete
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
-    private func delete(at index: Int) -> Bool {
+    fileprivate func delete(at index: Int) -> Bool {
         var temp = head
         var currentIndex = 0
         while currentIndex + 1 < index {
