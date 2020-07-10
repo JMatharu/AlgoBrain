@@ -6,5 +6,7 @@ matrix:
 xcode_scheme: AlgoBrainTests
 script:
   - swift test -c release -Xswiftc -enable-testing
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   email: false
