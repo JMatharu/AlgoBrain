@@ -12,6 +12,8 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
     - Singly Linked List
     - Doubly Linked List
 - Queues
+    - Queue as Array
+    - Queue as LinkedList
 
 ## In Progress
 ### Data Structures
