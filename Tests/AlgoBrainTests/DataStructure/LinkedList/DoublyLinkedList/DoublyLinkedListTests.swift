@@ -45,14 +45,56 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(list.head?.description, "2 <-> 3")
         XCTAssertFalse(list.insertAt(.index(100), with: 100))
         XCTAssertEqual(list.head?.description, "2 <-> 3")
-        
-//        let list = DoublyLinkedList<Int>()
-//        _ = list.insertAt(.end, with: 0)
-//        _ = list.insertAt(.end, with: 1)
-//        _ = list.insertAt(.end, with: 2)
-//        _ = list.insertAt(.end, with: 3)
-//        _ = list.insertAt(.end, with: 4)//0 <-> 1 <-> 2 <-> 3 <-> 4
-//        _ = list.insertAt(.index(3), with: 5)
-//        XCTAssertEqual(list.head?.description, "0 <-> 1 <-> 2 <-> 5 <-> 3 <-> 4")
+    }
+    
+    func testDeletionAtStart() {
+        let list = DoublyLinkedList<Int>()
+        XCTAssertFalse(list.removeFrom(.start))
+        _ = list.insertAt(.end, with: 1)
+        XCTAssertTrue(list.removeFrom(.start))
+        _ = list.insertAt(.end, with: 2)
+        _ = list.insertAt(.end, with: 3)
+        _ = list.insertAt(.end, with: 4)
+        XCTAssertTrue(list.removeFrom(.start))
+        XCTAssertEqual(list.head?.description, "3 <-> 4")
+    }
+    
+    func testDeletionAtEnd() {
+        let list = DoublyLinkedList<Int>()
+        XCTAssertFalse(list.removeFrom(.end))
+        _ = list.insertAt(.end, with: 1)
+        _ = list.insertAt(.end, with: 2)
+        _ = list.insertAt(.end, with: 3)
+        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertEqual(list.head?.description, "1 <-> 2")
+        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertEqual(list.head?.description, "1")
+        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertNil(list.head)
+    }
+    
+    func testDeletionAtIndex() {
+        let list = DoublyLinkedList<Int>()
+        _ = list.insertAt(.end, with: 1)
+        _ = list.insertAt(.end, with: 2)
+        _ = list.insertAt(.end, with: 3)
+        _ = list.insertAt(.end, with: 4)
+        XCTAssertFalse(list.removeFrom(.index(-1)))
+        XCTAssertTrue(list.removeFrom(.index(2)))
+        XCTAssertEqual(list.head?.description, "1 <-> 2 <-> 4")
+        XCTAssertTrue(list.removeFrom(.index(1)))
+        XCTAssertEqual(list.head?.description, "1 <-> 4")
+        XCTAssertFalse(list.removeFrom(.index(100)))
+    }
+    
+    func testReverse() {
+        let list = DoublyLinkedList<Int>()
+        _ = list.insertAt(.end, with: 1)
+        _ = list.insertAt(.end, with: 2)
+        _ = list.insertAt(.end, with: 3)
+        _ = list.insertAt(.end, with: 4)
+        XCTAssertEqual(list.head?.description, "1 <-> 2 <-> 3 <-> 4")
+        list.reverse()
+        XCTAssertEqual(list.head?.description, "4 <-> 3 <-> 2 <-> 1")
     }
 }

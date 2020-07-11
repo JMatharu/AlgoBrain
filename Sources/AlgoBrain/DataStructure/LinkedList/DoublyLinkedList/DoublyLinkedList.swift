@@ -61,16 +61,10 @@ public extension DoublyLinkedList {
         let newNode = DoublyListNode(val)
         
         guard !isEmpty else { head = newNode; tail = newNode; return true }
-        
-        var temp = head
-        
-        while temp?.next != nil {
-            temp = temp?.next
-        }
-        
-        newNode.previous = temp
-        temp?.next = newNode
-        newNode.next = nil
+    
+        tail?.next = newNode
+        newNode.previous = tail
+        tail = newNode
         
         return true
     }
@@ -109,7 +103,7 @@ public extension DoublyLinkedList {
 public extension DoublyLinkedList {
     
     func removeFrom(_ position: Position) -> Bool {
-        if isEmpty { print("Cannot delete from an empty list."); return false }
+        guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
         case .start:
             return deleteFromFirst()
@@ -121,17 +115,28 @@ public extension DoublyLinkedList {
     }
     
     fileprivate func deleteFromFirst() -> Bool {
-        
+        guard count > 1 else { head = nil; tail = nil; return true }
+        head = head?.next
         return true
     }
     
     fileprivate func deleteFromLast() -> Bool {
-           
+        guard count > 1 else { head = nil; tail = nil; return true }
+        tail = tail?.previous
+        tail?.next = nil
         return true
     }
     
     fileprivate func delete(at index: Int) -> Bool {
-        
+        guard (index > 0) else { print("Unable to delete at index \(index)"); return false }
+        guard index < count else { print("Index: \(index) exceeds length of list"); return false }
+        var temp = head
+        var currentIndex = 0
+        while currentIndex + 1 < index {
+            temp = temp?.next
+            currentIndex += 1
+        }
+        temp?.next = temp?.next?.next
         return true
     }
 }
@@ -139,8 +144,18 @@ public extension DoublyLinkedList {
 // Reverse
 public extension DoublyLinkedList {
     
-    func reverse() {
+    func reverse() {        
+        var current = head
+        var prevNode: DoublyListNode<T>?
         
+        while current != nil {
+            let next = current?.next
+            current?.next = current?.previous
+            prevNode = current
+            current = next
+        }
+        head = prevNode
+        tail = current
     }
 }
 
