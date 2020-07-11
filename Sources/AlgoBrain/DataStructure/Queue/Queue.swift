@@ -11,8 +11,6 @@ import Foundation
 /// FIFO Data Structure
 public struct Queue<T> {
     
-    private init() {}
-    
     /// Create instance of Queue with Array type
     /// - Returns: QueueArray, Arrays used as an element for Queue
     public static func asArray() -> QueueArray<T> {
