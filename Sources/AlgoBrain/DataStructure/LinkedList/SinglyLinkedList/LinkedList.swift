@@ -18,7 +18,7 @@ public class LinkedList<T> {
     }
     
     public var count: Int {
-        if isEmpty { return 0 }
+        guard !isEmpty else { return 0 }
         
         var temp = head
         var count = 1
@@ -119,7 +119,7 @@ public extension LinkedList {
     /// - Parameter position: Defined as start, end or at an index
     /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
     func removeFrom(_ position: Position) -> Bool {
-        if isEmpty { print("Cannot delete from an empty list."); return false }
+        guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
         case .start:
             return deleteFromFirst()
