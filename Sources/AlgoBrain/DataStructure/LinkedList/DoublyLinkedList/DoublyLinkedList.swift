@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Implementation of Doubly Linked List
 public class DoublyLinkedList<T> {
     public var head: DoublyListNode<T>?
     public var tail: DoublyListNode<T>?
@@ -33,6 +34,11 @@ public class DoublyLinkedList<T> {
 // Insertion
 public extension DoublyLinkedList {
     
+    /// Inserting to a Doubly Linked List
+    /// - Parameters:
+    ///   - position: Defined as start, end or at an index
+    ///   - val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     func insertAt(_ position: Position, with val: T) -> Bool {
         
         switch position {
@@ -45,6 +51,10 @@ public extension DoublyLinkedList {
         }
     }
     
+    /// Insertion at head to a Doubly Linked List
+    /// Time Complexity - O(1)
+    /// - Parameter val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func insertAtFirst(_ val: T) -> Bool {
         let newNode = DoublyListNode(val)
         
@@ -57,6 +67,10 @@ public extension DoublyLinkedList {
         return true
     }
     
+    /// Insertion at tail to a Doubly Linked List
+    /// Time Complexity - O(1)
+    /// - Parameter val: Value to be inserted at a specific place
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func insertAtLast(_ val: T) -> Bool {
         let newNode = DoublyListNode(val)
         
@@ -69,11 +83,17 @@ public extension DoublyLinkedList {
         return true
     }
     
+    /// Insert at a particular index in to a Doubly Linked List
+    /// Time Complexity - O(n), where `n` is the given index
+    /// - Parameters:
+    ///   - val: Value to be inserted at a specific place
+    ///   - index: Index where to insert
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func insert(_ val: T, at index: Int) -> Bool {
         
         if index < 0 { print("Index should be greater than or equal to 0."); return false }
         
-        if isEmpty && index > 0 { print("Cannot insert in linked list at index \(index) as list is empty"); return false }
+        if isEmpty && index > 0 { print("Cannot insert in doubly linked list at index \(index) as list is empty"); return false }
         
         guard !isEmpty else { return insertAtFirst(val) }
         
@@ -92,7 +112,7 @@ public extension DoublyLinkedList {
             temp?.next = newNode
             success = true
         } else {
-            print("Cannot insert in linked list at index \(index) as list count is \(currentIndex)")
+            print("Cannot insert in doubly linked list at index \(index) as list count is \(currentIndex)")
             success = false
         }
         return success
@@ -102,6 +122,9 @@ public extension DoublyLinkedList {
 // Deletion
 public extension DoublyLinkedList {
     
+    /// Removing from a Doubly Linked List
+    /// - Parameter position: Defined as start, end or at an index
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     func removeFrom(_ position: Position) -> Bool {
         guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
@@ -114,12 +137,18 @@ public extension DoublyLinkedList {
         }
     }
     
+    /// Remove from start of a Doubly Linked List
+    /// Time Complexity - O(1)
+    /// - Returns: Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func deleteFromFirst() -> Bool {
         guard count > 1 else { head = nil; tail = nil; return true }
         head = head?.next
         return true
     }
     
+    /// Remove from end of a Doubly Linked List
+    /// Time Complexity - O(1)
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func deleteFromLast() -> Bool {
         guard count > 1 else { head = nil; tail = nil; return true }
         tail = tail?.previous
@@ -127,6 +156,10 @@ public extension DoublyLinkedList {
         return true
     }
     
+    /// Remove from a particular index in a Doubly Linked List
+    /// Time Complexity - O(n), where `n` is the given index
+    /// - Parameter index: Index where to delete
+    /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
     fileprivate func delete(at index: Int) -> Bool {
         guard (index > 0) else { print("Unable to delete at index \(index)"); return false }
         guard index < count else { print("Index: \(index) exceeds length of list"); return false }
@@ -144,7 +177,9 @@ public extension DoublyLinkedList {
 // Reverse
 public extension DoublyLinkedList {
     
-    func reverse() {        
+    /// Reverse a Doubly Linked list
+    /// Time Complexity - O(n)
+    func reverse() {
         var current = head
         var prevNode: DoublyListNode<T>?
         

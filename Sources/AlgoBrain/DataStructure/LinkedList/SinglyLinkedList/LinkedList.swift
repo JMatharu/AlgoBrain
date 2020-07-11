@@ -37,7 +37,7 @@ public extension LinkedList {
     /// - Parameters:
     ///   - position: Defined as start, end or at an index
     ///   - val: Value to be inserted at a specific place
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     func insertAt(_ position: Position, with val: T) -> Bool {
         switch position {
         case .start:
@@ -52,7 +52,7 @@ public extension LinkedList {
     /// Insertion at head to a linked list,
     /// Time Complexity - O(1)
     /// - Parameter val: Value to be inserted at a specific place
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func insertAtFirst(_ val: T) -> Bool {
         let node = ListNode(val)
         node.next = head
@@ -63,7 +63,7 @@ public extension LinkedList {
     /// Insertion at tail to a linked list
     /// Time Complexity - O(n)
     /// - Parameter val: Value to be inserted at a specific place
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func insertAtLast(_ val: T) -> Bool {
         guard !isEmpty else { return insertAtFirst(val) }
         
@@ -83,7 +83,7 @@ public extension LinkedList {
     /// - Parameters:
     ///   - val: Value to be inserted at a specific place
     ///   - index: Index where to insert
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func insert(_ val: T, at index: Int) -> Bool {
         if index < 0 { print("Index should be greater than or equal to 0."); return false }
         
@@ -117,7 +117,7 @@ public extension LinkedList {
     
     /// Removing from a Linked List
     /// - Parameter position: Defined as start, end or at an index
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     func removeFrom(_ position: Position) -> Bool {
         guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
@@ -132,7 +132,7 @@ public extension LinkedList {
     
     /// Remove from start of a Linked List
     /// Time Complexity - O(1)
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func deleteFromFirst() -> Bool {
         head = head?.next
         return true
@@ -140,7 +140,7 @@ public extension LinkedList {
    
     /// Remove from end of a Linked List
     /// Time Complexity - O(n), where `n` is the given index
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func deleteFromLast() -> Bool {
         var temp = head
         var previous = head
@@ -156,7 +156,7 @@ public extension LinkedList {
     /// Remove from a particular index in a Linked List
     /// Time Complexity - O(n), where `n` is the given index
     /// - Parameter index: Index where to delete
-    /// - Returns: `true` or `false` as refereng to the success of insertion toa linked list
+    /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
     fileprivate func delete(at index: Int) -> Bool {
         var temp = head
         var currentIndex = 0
