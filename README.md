@@ -9,6 +9,8 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 
 ## Completed
 - LinkedList
+    - Singly Linked List
+    - Doubly Linked List
 
 ## In Progress
 ### Data Structures
