@@ -11,10 +11,10 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 - LinkedList
     - Singly Linked List
     - Doubly Linked List
+- Queues
 
 ## In Progress
 ### Data Structures
-- Queues
 - Stacks
 - Tree
 - Hashing
