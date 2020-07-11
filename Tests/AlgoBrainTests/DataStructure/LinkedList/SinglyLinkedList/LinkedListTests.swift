@@ -3,7 +3,7 @@ import XCTest
 
 final class LinkedListTests: XCTestCase {
     func testLinkedList() {
-        let list = LinkedList<String>()
+        var list = LinkedList<String>()
         XCTAssertTrue(list.isEmpty)
         XCTAssertEqual(list.count, 0)
         
@@ -13,14 +13,14 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testInsertionAtStart() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         XCTAssertTrue(list.insertAt(.start, with: 1))
         XCTAssertTrue(list.insertAt(.start, with: 2))
         XCTAssertEqual(list.head?.description, "2 -> 1")
     }
     
     func testInsertionAtEnd() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         XCTAssertTrue(list.insertAt(.end, with: 0))
         XCTAssertTrue(list.insertAt(.end, with: 1))
         XCTAssertTrue(list.insertAt(.end, with: 2))
@@ -28,7 +28,7 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testInsertionAtIndex() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         XCTAssertFalse(list.insertAt(.index(1), with: 1))
         XCTAssertNil(list.head?.description)
         XCTAssertTrue(list.insertAt(.index(0), with: 2))
@@ -42,7 +42,7 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testDeletionAtStart() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         XCTAssertFalse(list.removeFrom(.start))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
@@ -52,7 +52,7 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testDeletionAtEnd() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         XCTAssertFalse(list.removeFrom(.end))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
@@ -64,7 +64,7 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testDeletionAtIndex() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
@@ -76,7 +76,7 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testReverse() {
-        let list = LinkedList<Int>()
+        var list = LinkedList<Int>()
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)

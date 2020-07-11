@@ -10,7 +10,7 @@ import XCTest
 
 final class DoublyLinkedListTests: XCTestCase {
     func testDoublyLinkedList() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         XCTAssertTrue(list.isEmpty)
         XCTAssertEqual(list.count, 0)
         _ = list.insertAt(.start, with: 0)
@@ -19,14 +19,14 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testInsertAtStart() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         _ = list.insertAt(.start, with: 0)
         _ = list.insertAt(.start, with: 1)
         XCTAssertEqual(list.head?.description, "1 <-> 0")
     }
     
     func testInsertAtEnd() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         _ = list.insertAt(.end, with: 0)
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
@@ -34,7 +34,7 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testInsertAtIndex() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         XCTAssertFalse(list.insertAt(.index(1), with: 1))
         XCTAssertNil(list.head?.description)
         XCTAssertTrue(list.insertAt(.index(0), with: 2))
@@ -48,7 +48,7 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testDeletionAtStart() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         XCTAssertFalse(list.removeFrom(.start))
         _ = list.insertAt(.end, with: 1)
         XCTAssertTrue(list.removeFrom(.start))
@@ -60,7 +60,7 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testDeletionAtEnd() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         XCTAssertFalse(list.removeFrom(.end))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
@@ -74,7 +74,7 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testDeletionAtIndex() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
@@ -88,7 +88,7 @@ final class DoublyLinkedListTests: XCTestCase {
     }
     
     func testReverse() {
-        let list = DoublyLinkedList<Int>()
+        var list = DoublyLinkedList<Int>()
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
