@@ -8,7 +8,7 @@
 import XCTest
 @testable import AlgoBrain
 
-final class QueueArrayTests: XCTestCase {
+final class QueueTests: XCTestCase {
     func testQueueArray() {
         var queue = Queue<Int>.asArray()
         XCTAssertTrue(queue.isEmpty)
