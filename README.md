@@ -8,6 +8,7 @@
 A very simple Swift Package with implemented Data Structure and Algorithms for direct use into project.
 
 ## Completed
+### Data Structures
 - LinkedList
     - Singly Linked List
     - Doubly Linked List
@@ -17,6 +18,11 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 - Stacks
     - Stack as Array
     - Stack as LinkedList
+    
+### Algorithms
+#### Searching 
+- Linear Search
+- Binary Search 
 
 ## In Progress
 ### Data Structures
@@ -26,10 +32,6 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 - .......
 
 ### Algorithms
-#### Searching 
-- Linear Search
-- Binary Search
-
 #### Sort
 - Bubble Sort
 - Insertion Sort
