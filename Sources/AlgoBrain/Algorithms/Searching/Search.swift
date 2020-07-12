@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct Searching {
+public struct Search {
     
     /// Linear Search
     /// Time Complexity - O(n), where `n` is the number of elements in array
     /// - Parameter val: Value to be searched
     /// - Returns: Index of the element to be search, if found else `nil`
-    static func linearSearch<T: Equatable>(_ array: [T], _ val: T) -> Int? {
+    static func withLinear<T: Equatable>(_ array: [T], _ val: T) -> Int? {
         for (index, element) in array.enumerated() where element == val {
             return index
         }
@@ -25,7 +25,7 @@ public struct Searching {
     /// Time Complexity - O(log n)
     /// - Parameter val: Value to be searched
     /// - Returns: Index of the element to be search, if found else `nil`
-    static func binarySearch<T: Comparable>(_ array: [T], _ val: T) -> Int? {
+    static func withBinary<T: Comparable>(_ array: [T], _ val: T) -> Int? {
         return binary(array, val: val, range: 0..<array.count)
     }
     
