@@ -24,6 +24,16 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 - Linear Search
 - Binary Search 
 
+## Installation
+- Via Swift Packages
+- Search for `AlgoBrain` and select the version to install
+
+## Usage
+```swift
+import AlgoBrain
+```
+Next, start utilizing the classes for custom data structure and algorithms.
+
 ## In Progress
 ### Data Structures
 - Tree
