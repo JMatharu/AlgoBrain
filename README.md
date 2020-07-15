@@ -32,7 +32,20 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 ```swift
 import AlgoBrain
 ```
-Next, start utilizing the classes for custom data structure and algorithms.
+Using a Linked list
+```swift
+var linkedList = LinkedList<Int>()
+linkedList.insertAt(.end, with: 0)
+linkedList.insertAt(.start, with: 1)
+linkedList.insertAt(.start, with: 2)
+linkedList.insertAt(.start, with: 3)
+linkedList.insertAt(.index(2), with: 4)
+```
+Above code with generate list as `3 -> 2 -> 4 -> 1 -> 0`.
+
+Similarly other datastructures and algorithms can be used.
+
+Note: All the methods from libray are marked with their Time Complexity.
 
 ## In Progress
 ### Data Structures
