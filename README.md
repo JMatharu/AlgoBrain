@@ -7,6 +7,10 @@
 
 A very simple Swift Package with implemented Data Structure and Algorithms for direct use into project.
 
+> To understand recursion one should understand recursion.
+
+ _Don't forget to star the repo 😊._
+
 ## Completed
 ### Data Structures
 - LinkedList
