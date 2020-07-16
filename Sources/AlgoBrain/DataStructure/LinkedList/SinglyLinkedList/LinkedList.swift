@@ -38,6 +38,7 @@ public extension LinkedList {
     ///   - position: Defined as start, end or at an index
     ///   - val: Value to be inserted at a specific place
     /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
+    @discardableResult
     mutating func insertAt(_ position: Position, with val: T) -> Bool {
         switch position {
         case .start:
@@ -118,13 +119,14 @@ public extension LinkedList {
     /// Removing from a Linked List
     /// - Parameter position: Defined as start, end or at an index
     /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
-    mutating func removeFrom(_ position: Position) -> Bool {
+    @discardableResult
+    mutating func removeAt(_ position: Position) -> Bool {
         guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
         case .start:
-            return deleteFromFirst()
+            return deleteAtFirst()
         case .end:
-            return deleteFromLast()
+            return deleteAtLast()
         case .index(let index):
             return delete(at: index)
         }
@@ -133,7 +135,7 @@ public extension LinkedList {
     /// Remove from start of a Linked List
     /// Time Complexity - O(1)
     /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
-    fileprivate mutating func deleteFromFirst() -> Bool {
+    fileprivate mutating func deleteAtFirst() -> Bool {
         head = head?.next
         return true
     }
@@ -141,7 +143,7 @@ public extension LinkedList {
     /// Remove from end of a Linked List
     /// Time Complexity - O(n), where `n` is the given index
     /// - Returns: `true` or `false` as referring to the success of insertion to a linked list
-    fileprivate mutating func deleteFromLast() -> Bool {
+    fileprivate mutating func deleteAtLast() -> Bool {
         var temp = head
         var previous = head
         while temp?.next != nil {

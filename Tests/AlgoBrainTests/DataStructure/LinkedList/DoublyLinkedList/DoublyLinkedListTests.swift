@@ -49,27 +49,27 @@ final class DoublyLinkedListTests: XCTestCase {
     
     func testDeletionAtStart() {
         var list = DoublyLinkedList<Int>()
-        XCTAssertFalse(list.removeFrom(.start))
+        XCTAssertFalse(list.removeAt(.start))
         _ = list.insertAt(.end, with: 1)
-        XCTAssertTrue(list.removeFrom(.start))
+        XCTAssertTrue(list.removeAt(.start))
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
         _ = list.insertAt(.end, with: 4)
-        XCTAssertTrue(list.removeFrom(.start))
+        XCTAssertTrue(list.removeAt(.start))
         XCTAssertEqual(list.head?.description, "3 <-> 4")
     }
     
     func testDeletionAtEnd() {
         var list = DoublyLinkedList<Int>()
-        XCTAssertFalse(list.removeFrom(.end))
+        XCTAssertFalse(list.removeAt(.end))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
-        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertTrue(list.removeAt(.end))
         XCTAssertEqual(list.head?.description, "1 <-> 2")
-        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertTrue(list.removeAt(.end))
         XCTAssertEqual(list.head?.description, "1")
-        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertTrue(list.removeAt(.end))
         XCTAssertNil(list.head)
     }
     
@@ -79,12 +79,12 @@ final class DoublyLinkedListTests: XCTestCase {
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
         _ = list.insertAt(.end, with: 4)
-        XCTAssertFalse(list.removeFrom(.index(-1)))
-        XCTAssertTrue(list.removeFrom(.index(2)))
+        XCTAssertFalse(list.removeAt(.index(-1)))
+        XCTAssertTrue(list.removeAt(.index(2)))
         XCTAssertEqual(list.head?.description, "1 <-> 2 <-> 4")
-        XCTAssertTrue(list.removeFrom(.index(1)))
+        XCTAssertTrue(list.removeAt(.index(1)))
         XCTAssertEqual(list.head?.description, "1 <-> 4")
-        XCTAssertFalse(list.removeFrom(.index(100)))
+        XCTAssertFalse(list.removeAt(.index(100)))
     }
     
     func testReverse() {

@@ -42,24 +42,37 @@ final class LinkedListTests: XCTestCase {
     }
     
     func testDeletionAtStart() {
+        
+        var linkedList = LinkedList<Int>()
+        linkedList.insertAt(.end, with: 0)
+        linkedList.insertAt(.start, with: 1)
+        linkedList.insertAt(.start, with: 2)
+        linkedList.insertAt(.start, with: 3)
+        linkedList.insertAt(.index(2), with: 4)
+        print(linkedList.head) // 3 -> 2 -> 4 -> 1 -> 0
+        linkedList.removeAt(.start)
+        linkedList.removeAt(.end)
+        linkedList.removeAt(.index(2))
+        print(linkedList.head) // 2 -> 4
+        
         var list = LinkedList<Int>()
-        XCTAssertFalse(list.removeFrom(.start))
+        XCTAssertFalse(list.removeAt(.start))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
-        XCTAssertTrue(list.removeFrom(.start))
+        XCTAssertTrue(list.removeAt(.start))
         XCTAssertEqual(list.head?.description, "2 -> 3")
     }
     
     func testDeletionAtEnd() {
         var list = LinkedList<Int>()
-        XCTAssertFalse(list.removeFrom(.end))
+        XCTAssertFalse(list.removeAt(.end))
         _ = list.insertAt(.end, with: 1)
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
-        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertTrue(list.removeAt(.end))
         XCTAssertEqual(list.head?.description, "1 -> 2")
-        XCTAssertTrue(list.removeFrom(.end))
+        XCTAssertTrue(list.removeAt(.end))
         XCTAssertEqual(list.head?.description, "1")
     }
     
@@ -69,9 +82,9 @@ final class LinkedListTests: XCTestCase {
         _ = list.insertAt(.end, with: 2)
         _ = list.insertAt(.end, with: 3)
         _ = list.insertAt(.end, with: 4)
-        XCTAssertTrue(list.removeFrom(.index(2)))
+        XCTAssertTrue(list.removeAt(.index(2)))
         XCTAssertEqual(list.head?.description, "1 -> 2 -> 4")
-        XCTAssertTrue(list.removeFrom(.index(1)))
+        XCTAssertTrue(list.removeAt(.index(1)))
         XCTAssertEqual(list.head?.description, "1 -> 4")
     }
     

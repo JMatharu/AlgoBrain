@@ -40,8 +40,12 @@ linkedList.insertAt(.start, with: 1)
 linkedList.insertAt(.start, with: 2)
 linkedList.insertAt(.start, with: 3)
 linkedList.insertAt(.index(2), with: 4)
+print(linkedList.head) // 3 -> 2 -> 4 -> 1 -> 0
+linkedList.removeAt(.start)
+linkedList.removeAt(.end)
+linkedList.removeAt(.index(2))
+print(linkedList.head) // 2 -> 4
 ```
-Above code with generate list as `3 -> 2 -> 4 -> 1 -> 0`.
 
 Similarly other datastructures and algorithms can be used.
 

@@ -39,6 +39,7 @@ public extension DoublyLinkedList {
     ///   - position: Defined as start, end or at an index
     ///   - val: Value to be inserted at a specific place
     /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
+    @discardableResult
     mutating func insertAt(_ position: Position, with val: T) -> Bool {
         
         switch position {
@@ -125,13 +126,14 @@ public extension DoublyLinkedList {
     /// Removing from a Doubly Linked List
     /// - Parameter position: Defined as start, end or at an index
     /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
-    mutating func removeFrom(_ position: Position) -> Bool {
+    @discardableResult
+    mutating func removeAt(_ position: Position) -> Bool {
         guard !isEmpty else { print("Cannot delete from an empty list."); return false }
         switch position {
         case .start:
-            return deleteFromFirst()
+            return deleteAtFirst()
         case .end:
-            return deleteFromLast()
+            return deleteAtLast()
         case .index(let index):
             return delete(at: index)
         }
@@ -140,7 +142,7 @@ public extension DoublyLinkedList {
     /// Remove from start of a Doubly Linked List
     /// Time Complexity - O(1)
     /// - Returns: Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
-    fileprivate mutating func deleteFromFirst() -> Bool {
+    fileprivate mutating func deleteAtFirst() -> Bool {
         guard count > 1 else { head = nil; tail = nil; return true }
         head = head?.next
         return true
@@ -149,7 +151,7 @@ public extension DoublyLinkedList {
     /// Remove from end of a Doubly Linked List
     /// Time Complexity - O(1)
     /// - Returns: `true` or `false` as referring to the success of insertion to a doubly linked list
-    fileprivate mutating func deleteFromLast() -> Bool {
+    fileprivate mutating func deleteAtLast() -> Bool {
         guard count > 1 else { head = nil; tail = nil; return true }
         tail = tail?.previous
         tail?.next = nil
