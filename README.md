@@ -9,7 +9,7 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 
 > To understand recursion one should understand recursion.
 
- _If you understand this, don't forget to star the repo 😊._
+ _Don't forget to star the repo 😊._
 
 ## Completed
 ### Data Structures
