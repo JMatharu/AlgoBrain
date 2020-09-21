@@ -50,5 +50,7 @@ public struct Search {
         }
         return result
     }
+    
+    private init() {}
 }
 

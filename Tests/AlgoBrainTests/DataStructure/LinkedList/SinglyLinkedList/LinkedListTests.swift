@@ -49,11 +49,11 @@ final class LinkedListTests: XCTestCase {
         linkedList.insertAt(.start, with: 2)
         linkedList.insertAt(.start, with: 3)
         linkedList.insertAt(.index(2), with: 4)
-        print(linkedList.head) // 3 -> 2 -> 4 -> 1 -> 0
+        print(linkedList.head?.description as Any) // 3 -> 2 -> 4 -> 1 -> 0
         linkedList.removeAt(.start)
         linkedList.removeAt(.end)
         linkedList.removeAt(.index(2))
-        print(linkedList.head) // 2 -> 4
+        print(linkedList.head?.description as Any) // 2 -> 4
         
         var list = LinkedList<Int>()
         XCTAssertFalse(list.removeAt(.start))
