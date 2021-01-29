@@ -10,7 +10,7 @@ import Foundation
 public struct Search {
     
     /// Linear Search
-    /// Time Complexity - O(n), where `n` is the number of elements in array
+    /// Time Complexity - ϴ(n), where `n` is the number of elements in array
     /// - Parameter val: Value to be searched
     /// - Returns: Index of the element to be search, if found else `nil`
     static func withLinear<T: Equatable>(_ array: [T], _ val: T) -> Int? {
@@ -22,7 +22,7 @@ public struct Search {
         
     /// Binary Search
     /// Note: Array needs to be sorted in order to find the index
-    /// Time Complexity - O(log n)
+    /// Time Complexity - ϴ(log n)
     /// - Parameter val: Value to be searched
     /// - Returns: Index of the element to be search, if found else `nil`
     static func withBinary<T: Comparable>(_ array: [T], _ val: T) -> Int? {

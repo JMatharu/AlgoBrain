@@ -28,6 +28,10 @@ A very simple Swift Package with implemented Data Structure and Algorithms for d
 - Linear Search
 - Binary Search 
 
+#### Sort
+- Bubble Sort
+- Insertion Sort
+
 ## Installation
 - Via Swift Packages
 - Search for `AlgoBrain` and select the version to install
@@ -64,7 +68,6 @@ Note: All the methods from libray are marked with their Time Complexity.
 
 ### Algorithms
 #### Sort
-- Bubble Sort
 - Insertion Sort
 - Selection Sort
 - Quick Sort
